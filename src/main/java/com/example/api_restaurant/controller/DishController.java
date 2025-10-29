@@ -5,12 +5,11 @@ import com.example.api_restaurant.service.DishService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.net.URI;
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping(path = "api/v1/dishes")
@@ -39,5 +38,25 @@ public class DishController {
         }
         Page<Dish> dishes = dishService.findAll(keyword, categoryId, status, minPrice, maxPrice, sortBy, sortDir, page, limit);
         return ResponseEntity.ok(dishes);
+    }
+
+    @PostMapping
+    public ResponseEntity<?> save(@RequestBody Dish dish) {
+        Dish created = dishService.saveDish(dish);
+        return ResponseEntity
+                .created(URI.create("/api/v1/dishes/" + created.getId()))
+                .body(created);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable Long id, @RequestBody Dish updates) {
+        Dish update = dishService.updateDish(id, updates);
+        return ResponseEntity.ok(update);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteDish(@PathVariable Long id) {
+        dishService.deleteDish(id);
+        return ResponseEntity.noContent().build(); // 204 No Content
     }
 }
