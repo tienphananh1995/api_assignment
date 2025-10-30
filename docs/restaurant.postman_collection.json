@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "a5020bc5-40c0-460c-823b-f013c629f918",
+		"name": "restaurant",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "create dish",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Gà nướng\",\n    \"description\": \"Gà nướng than hồng\",\n    \"image_url\": \"https://cdn2.fptshop.com.vn/unsafe/1920x0/filters:format(webp):quality(75)/2023_11_6_638348285697999992_mon-ga-nuong-thumbnail.jpg\",\n    \"price\": 500000,\n    \"category\": {\n        \"id\": 1\n    },\n    \"status\": \"ON_SALE\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dishes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dishes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find dish by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dishes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dishes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update dish",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Gà nướng muối ớt\",\n  \"description\": \"Gà ta nướng với muối ớt cay nồng, thơm lừng\",\n  \"image_url\": \"https://example.com/ga-nuong-muoi-ot.jpg\",\n  \"price\": 650000,\n  \"category\": {\n    \"id\": 1\n  },\n  \"status\": \"ON_SALE\",\n  \"start_date\": \"2024-01-15T10:30:00.000Z\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dishes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dishes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete dish",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dishes/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dishes",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find list categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find list dishes",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/dishes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"dishes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
