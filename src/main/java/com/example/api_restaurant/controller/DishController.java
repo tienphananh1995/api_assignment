@@ -40,6 +40,12 @@ public class DishController {
         return ResponseEntity.ok(dishes);
     }
 
+    @RequestMapping(method = RequestMethod.GET, path = "/{id}")
+    public ResponseEntity<?> getOne(@PathVariable Long id) {
+        Dish dish = dishService.getDishById(id);
+        return ResponseEntity.ok(dish);
+    }
+
     @PostMapping
     public ResponseEntity<?> save(@RequestBody Dish dish) {
         Dish created = dishService.saveDish(dish);
